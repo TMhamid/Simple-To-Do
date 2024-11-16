@@ -1,0 +1,99 @@
+{
+  "name": "simple-to-do",
+  "displayName": "Simple To-Do",
+  "description": "A simple yet effective to-do list extension for managing tasks effortlessly.",
+  "version": "1.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/my-extension.git"
+  },
+  "publisher": "simple-to-do",
+  "categories": [
+    "Other"
+  ],
+
+  "readme": "README.md",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  
+  "activationEvents": [
+    "onView:todoListView",
+    "onCommand:simple-to-do.addTodo",
+    "onCommand:simple-to-do.deleteTodo",
+    "onCommand:simple-to-do.markAsDone",
+    "onCommand:simple-to-do.showTodoList",
+    "onCommand:simple-to-do.openWebView",
+    "onCommand:simple-to-do.clearTodos",
+    "onCommand:simple-to-do.reloadTodos"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "simple-to-do.openWebView",
+        "title": "Simple To-Do: Open To-Do WebView"
+      },
+      {
+        "command": "simple-to-do.addTodo",
+        "title": "Add New To-Do"
+      },
+      {
+        "command": "simple-to-do.deleteTodo",
+        "title": "Delete Selected To-Do"
+      },
+      {
+        "command": "simple-to-do.markAsDone",
+        "title": "Mark To-Do as Done"
+      },
+      {
+        "command": "simple-to-do.showTodoList",
+        "title": "Show To-Do List"
+      },
+      {
+        "command": "simple-to-do.clearTodos",
+        "title": "Clear All To-Dos"
+      },
+      {
+        "command": "simple-to-do.reloadTodos",
+        "title": "reload All To-Do"
+      }
+
+    ],
+    "views": {
+      "explorer": [
+        {
+          "type": "webview",
+          "id": "todoListView",
+          "name": "Simple To-Do"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "todoContainer",
+          "title": "Simple To-Do",
+          "icon": "resources/todo-icon.svg"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test",
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.95.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.13.0",
+    "globals": "^15.12.0",
+    "typescript": "^5.0.0"
+  }
+}
